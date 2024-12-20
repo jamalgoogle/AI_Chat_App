@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/ask", methods=["GET"])
 @cross_origin()
 def ask():
-    openai.api_key = "[YOUR_API_KEY_HERE]"
+    openai.api_key = process.env.API_KEY
     
     completions = openai.Completion.create(
         engine="text-davinci-003",
